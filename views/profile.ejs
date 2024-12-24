@@ -29,39 +29,88 @@
 
             <a href="/user/createpost/<%=user._id%>" class="bg-yellow-500 text-white px-6 py-2 rounded-lg">Create Post</a>
 
+            <a href="/user/seeposts/<%=user._id%>" class="bg-yellow-500 text-white px-6 py-2 rounded-lg">See Posts By Others</a>
+
 
         </div>
     </div>
 
+    
     <!-- Posts Section -->
-   <!-- <div class="w-2/3 mx-auto mt-10">
-        <h3 class="text-2xl font-semibold mb-4">Your Posts</h3>
-        <div class="space-y-6">
-            <% user.posts.forEach(post => { %>
-                <div class="bg-white p-4 rounded-lg shadow-md">
-                    <p class="text-gray-600 mb-2"><%= post.content %></p>
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <form action="/profile/like/<%= post._id %>" method="POST">
-                                <button type="submit" class="text-blue-500">
-                                    <%= post.likes.includes(user._id) ? "Unlike" : "Like" %>
-                                </button>
-                            </form>
-                            <span class="text-gray-400 ml-2"><%= post.likes.length %> Likes</span>
-                        </div>
-                        
-                         Edit & Delete Post -->
-                        <!-- <div class="space-x-4">
-                            <form action="/profile/deletePost/<%= post._id %>" method="POST" class="inline-block">
-                                <button type="submit" class="text-red-500">Delete</button>
-                            </form>
-                            <button class="text-blue-500">Edit</button>
-                        </div>
-                    </div>
+    
+    <div class="w-2/3 mx-auto mt-10">
+        <h3 class="text-2xl font-semibold mb-6">Your Posts</h3>
+
+        <%user.posts.reverse().forEach((post)=>{%>
+            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                
+                <p class="text-gray-700 mb-4">
+                    <%=post.content%>
+                </p>
+            
+                
+                <div class="flex space-x-4 mb-4">
+                    
+                    <img src="<%=post.image%>" alt="Post Image" class="w-1/3 rounded-lg object-cover">
+            
+                    
+                    <video src="<%=post.video%>" controls class="w-2/3 rounded-lg"></video>
                 </div>
-            <% }) %>
-        </div>
-    </div>   -->
+                
+                <h1><%=post.likes.length%></h1>
+                
+                <div class="flex items-center space-x-4">
+                    
+                    <a href="/user/like/<%=post._id%>/<%=user._id%>" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"><%=post.likes.indexOf(user._id)===-1?"Like":"Unlike"%></a>
+            
+                    
+                    <a href="/user/editpost/<%=post._id%>" class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition">Edit</a>
+            
+                    
+                    <a href="/user/delete/<%=post._id%>" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">Delete</a>
+                </div>
+            </div>
+        <%})%>
+        
+
+
+        
+
+        <!-- Add more posts as needed -->
+
+    </div>
+
+   
 
 </body>
 </html>
+
+
+
+<!-- <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            
+    <p class="text-gray-700 mb-4">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem magni quae quasi, tenetur accusamus aliquam magnam placeat eos. Dolorem atque repudiandae molestias libero!
+    </p>
+
+    
+    <div class="flex space-x-4 mb-4">
+        
+        <img src="../images/default.png" alt="Post Image" class="w-1/3 rounded-lg object-cover">
+
+        
+        <video src="../images/postupload/915f8b2fc4f15c8d81302e2f.mp4" controls class="w-2/3 rounded-lg"></video>
+    </div>
+
+    
+    <div class="flex items-center space-x-4">
+        
+        <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Like</a>
+
+        
+        <a href="#" class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition">Edit</a>
+
+        
+        <a href="#" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">Delete</a>
+    </div>
+</div> -->

@@ -15,7 +15,7 @@
             <!-- Edit Profile Form -->
             <h3 class="text-xl font-semibold mb-4">Edit Profile</h3>
             <form action="/user/edit/<%=user._id%>" enctype="multipart/form-data" method="post">
-                <input type="password" name="opassword" placeholder="Old Password" class="mb-4 px-4 py-2 w-full rounded-lg border border-gray-300">
+                <input type="password" name="opassword" placeholder="Current Password" class="mb-4 px-4 py-2 w-full rounded-lg border border-gray-300">
                 <input type="text" name="username" value="<%= user.username %>" placeholder="Username" class="mb-4 px-4 py-2 w-full rounded-lg border border-gray-300">
                 <input type="email" name="email" value="<%= user.email %>" placeholder="Email" class="mb-4 px-4 py-2 w-full rounded-lg border border-gray-300">
                 <input type="file" name="profilePic" class="mb-4 px-4 py-2 w-full rounded-lg border border-gray-300">
@@ -23,11 +23,18 @@
                 <input type="password" name="cpassword" placeholder="Confirm Password" class="mb-4 px-4 py-2 w-full rounded-lg border border-gray-300">
                 <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded-lg">Save Changes</button>
             </form>
+            
+            
 
             <!-- Adding Space Before the Back Button -->
             <div class="mt-6">
                 <a href="/user/profile" class="bg-red-500 text-white px-6 py-2 rounded-lg">Back</a>
             </div>
+
+            <%if(error){%>
+                <h3 class="text-md font-semibold mb-4 pt-4"><%=error%></h3>
+            <%}%>
+
         </div>
     </div>
 
