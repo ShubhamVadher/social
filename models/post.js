@@ -11,7 +11,13 @@ const postschema=mongoose.Schema({
     },
     content:String,
     image:String,
-    video:String
+    video:String,
+    likes:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"user"
+        }
+    ]
 })
 
 module.exports=mongoose.model("post",postschema);

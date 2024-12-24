@@ -13,7 +13,7 @@
         <div class="w-2/3 bg-white rounded-xl shadow-lg p-8">
             <!-- Profile Info -->
             <div class="flex items-center mb-6">
-                <img src="<%= user.profilePic || 'https://via.placeholder.com/150' %>" alt="Profile Picture" class="w-24 h-24 rounded-full mr-6">
+                <img src="<%=user.photo%>" alt="Profile Picture" class="w-24 h-24 rounded-full mr-6">
                 <div>
                     <h2 class="text-2xl font-bold"><%= user.username %></h2>
                     <p class="text-gray-500"><%= user.email %></p>
@@ -21,23 +21,20 @@
             </div>
             
             <!-- Edit Profile Form -->
-            <h3 class="text-xl font-semibold mb-4">Edit Profile</h3>
-            <form action="/profile/editProfile/user._id" method="POST">
-                <input type="text" name="username" value="<%= user.username %>" placeholder="Username" class="mb-4 px-4 py-2 w-full rounded-lg border border-gray-300">
-                <input type="email" name="email" value="<%= user.email %>" placeholder="Email" class="mb-4 px-4 py-2 w-full rounded-lg border border-gray-300">
-                <input type="text" name="profilePic" value="<%= user.profilePic %>" placeholder="Profile Picture URL" class="mb-4 px-4 py-2 w-full rounded-lg border border-gray-300">
-                <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded-lg">Save Changes</button>
-            </form>
+            <a href="/user/editprofile/<%=user._id%>" class="bg-blue-500 text-white px-6 py-2 rounded-lg">Edit Profile</a>    
+        
 
             <!-- Logout Button -->
-            <form action="/logout" method="POST" class="mt-6">
-                <button type="submit" class="bg-red-500 text-white px-6 py-2 rounded-lg">Logout</button>
-            </form>
+            <a href="/user/logout" class="bg-red-500 text-white px-6 py-2 rounded-lg">Logout</a>
+
+            <a href="/user/createpost/<%=user._id%>" class="bg-yellow-500 text-white px-6 py-2 rounded-lg">Create Post</a>
+
+
         </div>
     </div>
 
     <!-- Posts Section -->
-    <div class="w-2/3 mx-auto mt-10">
+   <!-- <div class="w-2/3 mx-auto mt-10">
         <h3 class="text-2xl font-semibold mb-4">Your Posts</h3>
         <div class="space-y-6">
             <% user.posts.forEach(post => { %>
@@ -53,8 +50,8 @@
                             <span class="text-gray-400 ml-2"><%= post.likes.length %> Likes</span>
                         </div>
                         
-                        <!-- Edit & Delete Post -->
-                        <div class="space-x-4">
+                         Edit & Delete Post -->
+                        <!-- <div class="space-x-4">
                             <form action="/profile/deletePost/<%= post._id %>" method="POST" class="inline-block">
                                 <button type="submit" class="text-red-500">Delete</button>
                             </form>
@@ -64,7 +61,7 @@
                 </div>
             <% }) %>
         </div>
-    </div>
+    </div>   -->
 
 </body>
 </html>

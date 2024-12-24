@@ -3,23 +3,27 @@ const mongoose=require("mongoose");
 const userschema=mongoose.Schema({
     username:{
         type:String,
-        require:true
+        require:true,
+    },
+    photo:{
+        type:String,
+        default:"/images/default.png",
     },
     email:{
         type:String,
-        require:true
+        require:true,
     },
     password:{
         type:String,
-        require:true
+        require:true,
     },
     cpassword:{
         type:String,
-        require:true
+        require:true,
     },
     posts:[{
         type:mongoose.Schema.Types.ObjectId,
-        ref:"post"
+        ref:"post",
     }]
 })
 
