@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100 flex-col">
+
+    <div class="flex space-x-16 bg-white shadow-lg rounded-xl p-8">
+        
+        <!-- Signup Form -->
+        <div class="register w-80">
+            <h2 class="text-2xl font-bold text-center mb-4">Sign Up</h2>
+            <form action="/register" method="post">
+                <input type="text" name="username" placeholder="Username" class="px-4 h-12 mb-4 rounded-xl w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="email" name="email" placeholder="Email" class="px-4 h-12 mb-4 rounded-xl w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="password" name="password" placeholder="Password" class="px-4 h-12 mb-4 rounded-xl w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="password" name="cpassword" placeholder="Confirm Password" class="px-4 h-12 mb-6 rounded-xl w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-xl">Sign Up</button>
+            </form>
+            
+        </div>
+
+        <!-- Login Form -->
+        <div class="login w-80">
+            <h2 class="text-2xl font-bold text-center mb-4">Log In</h2>
+            <form action="/login" method="post">
+                <input type="email" name="email" placeholder="Email" class="px-4 h-12 mb-4 rounded-xl w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="password" name="password" placeholder="Password" class="px-4 h-12 mb-6 rounded-xl w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-xl">Log In</button>
+            </form>
+            
+        </div>
+
+    </div>
+    <% if (error) { %>
+        <div class="error-message">
+            <%= error %>
+        </div>
+    <% } %>
+
+</body>
+</html>

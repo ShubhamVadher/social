@@ -1,0 +1,10 @@
+login signup logout for user
+edit profile
+delete account
+
+
+make a post including images text and videos
+delete you post and edit it
+
+
+view post by others
